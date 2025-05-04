@@ -47,7 +47,7 @@ const ArticlesPage = () => {
                         <div key={article.id} >
                             <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ </p>
                             <h2>{article.title}</h2>
-                           <p> {article.content.length > 30 ? `${article.content.substring(0, 30)}...` : article.content}... <Link className='link' href={`/articles/${article.id}/`} >Read</Link></p>
+                           <p> {article.content.length > 30 ? `${article.content.substring(0, 200)}...` : article.content}... <Link className='link' href={`/articles/${article.id}/`} >Read</Link></p>
 
                             {article.user_id === Number(localStorage.getItem('userId')) && (
                                 <>
