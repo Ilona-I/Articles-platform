@@ -10,6 +10,8 @@ const UpdateArticlePage = () => {
     const [article, setArticle] = useState<Article>();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const userId = localStorage.getItem("userId");
+
 
     useEffect(() => {
         console.log('ID:', id);
@@ -27,6 +29,13 @@ const UpdateArticlePage = () => {
         }
     }, [id]);
 
+    if(userId === null) {
+        router.push('/logIn');
+    }
+    if(article && String(userId) !== String(article.user_id)) {
+        router.push('/error403');
+    }
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setArticle((prev) => prev ? { ...prev, [name]: value } : undefined);
@@ -34,8 +43,7 @@ const UpdateArticlePage = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        try {
-            const userId = localStorage.getItem("userId"); 
+        try { 
             const response = await fetch(`/api/article/${id}`, {
                 method: 'PUT',
                 headers: { 

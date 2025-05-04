@@ -23,9 +23,10 @@ const LogInPage = () => {
             const response = await axios.post<{ id: string }>('/api/logIn', { username: username, password: password });
             console.log('You logged in successfully:', response.data);
             localStorage.setItem('userId', response.data.id);
+            localStorage.setItem('username', username);
             router.push('/articles');
         } catch (error) {
-            console.error('Error creating article:', error);
+            console.error('Error:', error);
         }
     };
 

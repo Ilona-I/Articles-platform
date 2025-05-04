@@ -14,8 +14,10 @@ export default function SignUpPage() {
     const handleSignUp = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/api/signUp', { username, email, password });
+            const response = await axios.post<{ id: string }>('/api/signUp', { username, email, password });
             if (response.status === 201) {
+                localStorage.setItem('userId', response.data.id);
+                localStorage.setItem('username', username);
                 router.push('/articles');
             }
         } catch (err: any) {

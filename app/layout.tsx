@@ -29,11 +29,16 @@ export default function RootLayout({
           <a href="/articles">Articles</a>
           <div className="menu2">
           {localStorage.getItem("userId") ? (
+            <div>
+              <div className="user_info">
+                {localStorage.getItem("username")}
+              </div>
             <button className="btn info" onClick={() => {
           localStorage.removeItem("userId");
+          localStorage.removeItem("username");
           window.location.reload();
             }}>Logout</button>
-          ) : (
+          </div>) : (
             <>
           <button className="btn info" onClick={() => window.location.href = "/logIn"}>Log In</button>
           <button className="btn info" onClick={() => window.location.href = "/signUp"}>Sign Up</button>
