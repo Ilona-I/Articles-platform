@@ -26,6 +26,7 @@ VALUES
 (8, 'Eighth Article', 'This is the content of the eighth article.', NULL, '2023-01-09 18:00:00'),
 (9, 'Ninth Article', 'This is the content of the ninth article.', NULL, '2023-01-10 19:00:00');
 
+/*
 -- Insert test data for comments with all fields
 INSERT INTO comments (user_id, article_id, content, blocked_at, created_at)
 VALUES 
@@ -81,3 +82,4 @@ VALUES
 (8, 6, FALSE, '2023-01-08 17:00:00'),
 (9, 7, TRUE, '2023-01-09 18:00:00'),
 (10, 8, TRUE, '2023-01-10 19:00:00');
+*/

@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     if (results.length === 0) {
       return NextResponse.json({ error: 'Invalid username or password' }, { status: 401 })
     }
-
+  
     await connection.end()
     return NextResponse.json(results[0])
   } catch (err) {
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
 
       returnedStatus: 200,
     }
-
+   
     return NextResponse.json(response, { status: 200 })
   }
 }

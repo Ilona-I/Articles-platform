@@ -5,8 +5,8 @@ export interface User {
     email: string;
     password: string;
     role: string;
-    blockedAt: Date | null;
-    createdAt: Date;
+    blocked_at: Date | null;
+    created_at: Date;
 }
 
 export default User;

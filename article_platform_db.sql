@@ -20,7 +20,7 @@ CREATE TABLE articles (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
+/*
 CREATE TABLE comments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -64,3 +64,4 @@ CREATE TABLE comment_ratings (
 
 INSERT INTO users (username, email, password_hash, role)
 VALUES ('admin', 'admin@example.com', 'password', 'admin');
+*/

@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     }
 
     const insertArticleQuery = `
-      INSERT INTO article_platform_db.articles (title, content, author_id)
+      INSERT INTO article_platform_db.articles (title, content, user_id)
       VALUES (?, ?, ?)
     `
     const values = [title, content, authorId]
