@@ -21,7 +21,7 @@ const ArticlesPage = () => {
                 setLoading(false);
             });
     }, []);
-    
+
     const handleDelete = async (id: string) => {
         try {
             await axios.delete(`/api/article/${id}`);
@@ -34,7 +34,7 @@ const ArticlesPage = () => {
     if (loading) {
         return <div className="loading">Loading...</div>;
     }
-    
+
     return (
         <div className="articles-container">
             <h1>Articles</h1>
@@ -42,20 +42,20 @@ const ArticlesPage = () => {
             {articles.length === 0 ? (
                 <p>No articles available</p>
             ) : (
-                <div className="articles-list">
+                <div>
                     {articles.map(article => (
-                        <div key={article.id} className="article-card">
+                        <div key={article.id} >
+                            <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ </p>
                             <h2>{article.title}</h2>
-                            <p>Title: {article.title}</p>
+                           <p> {article.content.length > 30 ? `${article.content.substring(0, 30)}...` : article.content}... <Link className='link' href={`/articles/${article.id}/`} >Read</Link></p>
 
-                            <button><Link href={`/articles/${article.id}/`} className="update-link">Read</Link></button>
-                           
                             {article.user_id === Number(localStorage.getItem('userId')) && (
                                 <>
-                                
-                                    <button><Link href={`/articles/${article.id}/update`} className="update-link">Update</Link></button>
-                                    <button onClick={() => handleDelete(article.id.toString())}>Delete</button></>
+
+                                    <button className='btn btn_blue'><Link className='btn_link' href={`/articles/${article.id}/update`} >Update</Link></button>
+                                    <button className='btn btn_red' onClick={() => handleDelete(article.id.toString())}>Delete</button></>
                             )}
+                            
                         </div>
                     ))}
                 </div>

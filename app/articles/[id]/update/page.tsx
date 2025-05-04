@@ -35,7 +35,7 @@ const UpdateArticlePage = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const userId = localStorage.getItem("userId"); // Replace with actual user ID retrieval logic
+            const userId = localStorage.getItem("userId"); 
             const response = await fetch(`/api/article/${id}`, {
                 method: 'PUT',
                 headers: { 
@@ -68,6 +68,7 @@ const UpdateArticlePage = () => {
                         type="text"
                         id="title"
                         name="title"
+                        className='inputFieldTitle'
                         value={article?.title ?? ''}
                         onChange={handleInputChange}
                         required
@@ -78,12 +79,13 @@ const UpdateArticlePage = () => {
                     <textarea
                         id="content"
                         name="content"
+                        className='inputFieldContent'
                         value={article?.content ?? ''}
                         onChange={handleInputChange}
                         required
                     />
                 </div>
-                <button type="submit">Update</button>
+                <button className='btn_submit_create_article' type="submit">Update</button>
             </form>
         </div>
     );

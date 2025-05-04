@@ -23,21 +23,23 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <header><div className="navbar">
-        
+        <nav>
+      
          <a href="/">Main</a>
           <a href="/articles">Articles</a>
+          <div className="menu2">
           {localStorage.getItem("userId") ? (
-            <button onClick={() => {
+            <button className="btn info" onClick={() => {
           localStorage.removeItem("userId");
           window.location.reload();
             }}>Logout</button>
           ) : (
             <>
-          <button onClick={() => window.location.href = "/logIn"}>Log In</button>
-          <button onClick={() => window.location.href = "/signUp"}>Sign Up</button>
+          <button className="btn info" onClick={() => window.location.href = "/logIn"}>Log In</button>
+          <button className="btn info" onClick={() => window.location.href = "/signUp"}>Sign Up</button>
             </>
           )}
-        
+        </div></nav>
           </div>
         </header>
         <div className="main">

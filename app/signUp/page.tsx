@@ -19,7 +19,7 @@ export default function SignUpPage() {
                 router.push('/articles');
             }
         } catch (err: any) {
-    
+
             if (err.response && err.response.data && err.response.data.error) {
                 setError(err.response.data.error);
             } else {
@@ -30,41 +30,44 @@ export default function SignUpPage() {
     };
 
     return (
-        <div className="signup-container">
+        <div className="center_container">
             <h1>Sign Up</h1>
             <form onSubmit={handleSignUp}>
                 <div>
-                    <label htmlFor="username">Username:</label>
+                    <label htmlFor="username">Username:</label><br />
                     <input
                         type="text"
                         id="username"
                         value={username}
+                        className='inputField'
                         onChange={(e) => setUsername(e.target.value)}
                         required
-                    />
+                    /><br />
                 </div>
                 <div>
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email">Email:</label><br />
                     <input
                         type="email"
                         id="email"
                         value={email}
+                        className='inputField'
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                    />
+                    /><br />
                 </div>
                 <div>
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password">Password:</label><br />
                     <input
                         type="password"
                         id="password"
                         value={password}
+                        className='inputField'
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                    />
+                    /><br />
                 </div>
-                {error && <p className="error">{error}</p>}
-                <button type="submit">Sign Up</button>
+                {error && <p className="error">{error}</p>}<br />
+                <button className='btn btn_submit' type="submit">Sign Up</button>
             </form>
         </div>
     );

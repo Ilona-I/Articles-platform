@@ -50,11 +50,11 @@ const ArticlePage = () => {
                 <div className="article-details">
                     <h1>{article[0].title}</h1>
                     <p>{article[0].content}</p>
-                    <p>Author ID: {article[0].user_id}</p>
+                    <p className='authorId'>Author ID: {article[0].user_id}</p>
                     {article[0].user_id === Number(localStorage.getItem('userId')) && (
                         <>
-                            <button><Link href={`/articles/${article[0].id}/update`} className="update-link">Update</Link></button>
-                            <button onClick={() => handleDelete(article[0].id.toString())}>Delete</button>
+                            <button className='btn btn_blue'> <Link href={`/articles/${article[0].id}/update`} className='btn_link'>Update</Link></button>
+                            <button className='btn btn_red' onClick={() => handleDelete(article[0].id.toString())}>Delete</button>
                         </>
                     )}
 

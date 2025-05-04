@@ -36,29 +36,31 @@ const CreateArticlePage = () => {
     return (
         <div className="create-article-container">
             <h1>Create Article</h1>
-            <form onSubmit={handleSubmit} className="create-article-form">
+            <form onSubmit={handleSubmit} >
                 <div className="form-group">
                     <label htmlFor="title">Title</label>
                     <input
                         type="text"
                         id="title"
                         value={title}
+                        className='inputFieldTitle'
                         onChange={(e) => setTitle(e.target.value)}
                         required
                     />
                 </div>
                 <div className="form-group">
                     <label htmlFor="image">Content</label>
-                    <input
-                        type="text"
+                    <textarea
                         id="content"
+                        name="content"
                         value={content}
+                        className='inputFieldContent'
                         onChange={(e) => setContent(e.target.value)}
                         required
                     />
                 </div>
                 {error && <p className="error-message">{error}</p>}
-                <button type="submit" className="submit-button">Create</button>
+                <button className='btn_submit_create_article' type="submit">Create</button>
             </form>
         </div>
     );

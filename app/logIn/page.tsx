@@ -30,31 +30,33 @@ const LogInPage = () => {
     };
 
     return (
-        <div className="create-article-container">
+        <div className="center_container">
             <h1>Log in</h1>
             <form onSubmit={handleSubmit} className="create-article-form">
                 <div className="form-group">
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username">Username</label><br />
                     <input
                         type="text"
                         id="username"
+                        className='inputField'
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Password</label> <br />
                     <input
                         type="password"
                         id="password"
                         value={password}
+                        className='inputField'
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
                 </div>
-                {error && <p className="error-message">{error}</p>}
-                <button type="submit" className="submit-button">Log in</button>
+                {error && <p className="error-message">{error}</p>}<br />
+                <button type="submit" className='btn_submit'>Log in</button>
             </form>
         </div>
     );
